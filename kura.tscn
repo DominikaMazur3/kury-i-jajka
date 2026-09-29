@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dk5gslyhaqg0c"]
+
+[ext_resource type="Script" uid="uid://c32yggpsxaf8p" path="res://kura.gd" id="1_54los"]
+[ext_resource type="Texture2D" uid="uid://8bly8uckkgt1" path="res://sprites/jajo.png" id="2_1lnha"]
+[ext_resource type="Texture2D" uid="uid://bmuflfrqmax1j" path="res://sprites/kura.png" id="3_byiu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdfc0"]
+size = Vector2(120, 120)
+
+[node name="kura" type="CharacterBody2D" unique_id=912475118]
+script = ExtResource("1_54los")
+
+[node name="jajko" type="Sprite2D" parent="." unique_id=282741160]
+z_index = 1
+texture = ExtResource("2_1lnha")
+
+[node name="jajko_przycisk" type="TextureButton" parent="jajko" unique_id=421476947]
+offset_left = -40.0
+offset_top = -42.0
+offset_right = 40.0
+offset_bottom = 42.0
+
+[node name="kura" type="Sprite2D" parent="." unique_id=1397356406]
+visible = false
+texture = ExtResource("3_byiu7")
+
+[node name="5s" type="Timer" parent="." unique_id=834268625]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="kolizja" type="CollisionShape2D" parent="." unique_id=1324930375]
+shape = SubResource("RectangleShape2D_gdfc0")
+disabled = true
+
+[node name="zmiana_kierunku" type="Timer" parent="." unique_id=1736701291]
+autostart = true
+
+[node name="znies_jajko" type="Timer" parent="." unique_id=1102737337]
+wait_time = 10.0
+autostart = true
+
+[connection signal="pressed" from="jajko/jajko_przycisk" to="." method="_on_jajko_przycisk_pressed"]
+[connection signal="timeout" from="5s" to="." method="_on_s_timeout"]
+[connection signal="timeout" from="zmiana_kierunku" to="." method="_on_zmiana_kierunku_timeout"]
+[connection signal="timeout" from="znies_jajko" to="." method="_on_znies_jajko_timeout"]

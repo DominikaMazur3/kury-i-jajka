@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dhe4erlu1k6mu"]
+
+[ext_resource type="PackedScene" uid="uid://dk5gslyhaqg0c" path="res://kura.tscn" id="1_0ubnc"]
+[ext_resource type="Script" uid="uid://b3j3rmdlrs3eh" path="res://gra.gd" id="1_vmmra"]
+
+[node name="Korzen" type="Node2D" unique_id=150344719]
+script = ExtResource("1_vmmra")
+
+[node name="kura" parent="." unique_id=912475118 instance=ExtResource("1_0ubnc")]
+position = Vector2(590, 366)
+
+[node name="punkty" type="Label" parent="." unique_id=2070178092]
+offset_right = 40.0
+offset_bottom = 23.0
