@@ -7,6 +7,10 @@ var kura = load("res://kura.tscn")
 
 const SZYBKOSC = 75.0
 
+func _on_ready():
+	if get_parent().limit:
+		queue_free()
+
 func _physics_process(delta: float) -> void:
 	if (position.x < 0): kierunek_x = 1
 	elif (position.x > 1152): kierunek_x = -1
@@ -33,6 +37,8 @@ func _on_s_timeout() -> void:
 	jest_jajkiem = false
 
 func _on_znies_jajko_timeout() -> void:
+	if get_parent().limit:
+		return
 	var nowa_kura = kura.instantiate()
 	nowa_kura.position = position
 	get_parent().add_child(nowa_kura)

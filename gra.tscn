@@ -10,5 +10,23 @@ script = ExtResource("1_vmmra")
 position = Vector2(590, 366)
 
 [node name="punkty" type="Label" parent="." unique_id=2070178092]
+z_index = 3
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="limit" type="Label" parent="." unique_id=107929355]
+z_index = 3
+offset_top = 71.0
+offset_right = 40.0
+offset_bottom = 94.0
+
+[node name="nowa_gra" type="Button" parent="." unique_id=1717177419]
+visible = false
+z_index = 3
+offset_left = 416.0
+offset_top = 284.0
+offset_right = 736.0
+offset_bottom = 364.0
+text = "Nowa gra"
+
+[connection signal="pressed" from="nowa_gra" to="." method="_on_nowa_gra_pressed"]
