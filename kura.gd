@@ -42,6 +42,7 @@ func _on_znies_jajko_timeout() -> void:
 	var nowa_kura = kura.instantiate()
 	nowa_kura.position = position
 	get_parent().add_child(nowa_kura)
+	get_node("znies_jajko").set_wait_time(5.0 + randf_range(-0.8,0.8))
 
 func _on_jajko_przycisk_pressed() -> void:
 	get_parent().punkty += 1

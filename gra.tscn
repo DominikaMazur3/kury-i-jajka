@@ -2,6 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://dk5gslyhaqg0c" path="res://kura.tscn" id="1_0ubnc"]
 [ext_resource type="Script" uid="uid://b3j3rmdlrs3eh" path="res://gra.gd" id="1_vmmra"]
+[ext_resource type="Texture2D" uid="uid://ybwgmfauna7v" path="res://sprites/tlo.png" id="3_uhg20"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h35r2"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ml6u"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_gdfc0"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhg20"]
+font_size = 50
 
 [node name="Korzen" type="Node2D" unique_id=150344719]
 script = ExtResource("1_vmmra")
@@ -9,16 +22,26 @@ script = ExtResource("1_vmmra")
 [node name="kura" parent="." unique_id=912475118 instance=ExtResource("1_0ubnc")]
 position = Vector2(590, 366)
 
+[node name="5s" parent="kura" index="2" unique_id=834268625]
+wait_time = 0.001
+
 [node name="punkty" type="Label" parent="." unique_id=2070178092]
 z_index = 3
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 53.0
+text = "0"
+label_settings = SubResource("LabelSettings_h35r2")
 
 [node name="limit" type="Label" parent="." unique_id=107929355]
 z_index = 3
-offset_top = 71.0
-offset_right = 40.0
-offset_bottom = 94.0
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 143.0
+offset_bottom = 184.0
+text = "1/64"
+label_settings = SubResource("LabelSettings_3ml6u")
 
 [node name="nowa_gra" type="Button" parent="." unique_id=1717177419]
 visible = false
@@ -29,4 +52,33 @@ offset_right = 736.0
 offset_bottom = 364.0
 text = "Nowa gra"
 
+[node name="koniec_gry" type="Label" parent="nowa_gra" unique_id=1208216246]
+z_index = -1
+layout_mode = 0
+offset_top = -96.0
+offset_right = 320.0
+offset_bottom = -68.0
+text = "Koniec gry! Zebrane punkty:"
+label_settings = SubResource("LabelSettings_gdfc0")
+horizontal_alignment = 1
+
+[node name="zebrane punkty" type="Label" parent="nowa_gra" unique_id=1902122292]
+z_index = -1
+layout_mode = 0
+offset_top = -70.0
+offset_right = 320.0
+text = "0"
+label_settings = SubResource("LabelSettings_uhg20")
+horizontal_alignment = 1
+
+[node name="tlo" type="TextureRect" parent="." unique_id=741354710]
+z_index = -1
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("3_uhg20")
+stretch_mode = 1
+
 [connection signal="pressed" from="nowa_gra" to="." method="_on_nowa_gra_pressed"]
+
+[editable path="kura"]

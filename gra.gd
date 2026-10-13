@@ -17,6 +17,7 @@ func set_kury(k):
 	if kury >= max_kury:
 		limit = true
 		get_node("nowa_gra").show()
+		get_node("nowa_gra/zebrane punkty").set_text(str(punkty))
 
 func _on_nowa_gra_pressed() -> void:
 	get_tree().reload_current_scene()
